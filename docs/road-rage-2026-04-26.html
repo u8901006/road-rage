@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路怒研究日報 2026-04-26 | Road Rage Research Daily</title>
+<meta name="description" content="路怒症、攻擊性駕駛、駕駛憤怒研究文獻日報 - 2026-04-26">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #fff6ea 0, #f6f1e8 55%, #ead8c6 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: 48px 24px 36px;
+  animation: fadeDown 0.6s ease-out;
+}
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+header .subtitle {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.header-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.header-badge .icon { font-size: 0.9rem; }
+
+/* ── Summary Card ── */
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.85;
+  box-shadow: 0 1px 4px rgba(139,79,43,0.06);
+  animation: fadeUp 0.5s ease-out 0.1s both;
+}
+.summary-card .label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ── Sections ── */
+.section {
+  margin: 32px 0;
+  animation: fadeUp 0.5s ease-out both;
+}
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+.section:nth-child(5) { animation-delay: 0.4s; }
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .emoji { font-size: 1.2rem; }
+
+/* ── News Cards ── */
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(139,79,43,0.05);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.news-card:hover {
+  box-shadow: 0 4px 14px rgba(139,79,43,0.1);
+  transform: translateY(-1px);
+}
+.news-card.featured {
+  border-left: 4px solid var(--accent);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.card-rank {
+  background: var(--accent);
+  color: #fff7f0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: var(--accent);
+}
+.card-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.card-meta .journal {
+  font-weight: 500;
+  font-style: italic;
+}
+.card-summary {
+  font-size: 0.9rem;
+  color: #3d3228;
+  line-height: 1.75;
+  margin: 8px 0;
+}
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.topic-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.key-findings {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+.key-findings li {
+  font-size: 0.86rem;
+  color: #3d3228;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.clinical-implications {
+  background: rgba(90,122,58,0.06);
+  border-left: 3px solid #5a7a3a;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.84rem;
+  color: #4a5a2e;
+  line-height: 1.65;
+}
+.clinical-implications .label {
+  font-weight: 600;
+  color: #5a7a3a;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ── Topic Distribution ── */
+.topic-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.topic-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topic-bar-label {
+  width: 180px;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-align: right;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.topic-bar-track {
+  flex: 1;
+  height: 22px;
+  background: rgba(139,79,43,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.topic-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #c47a4a);
+  border-radius: 6px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff7f0;
+  transition: width 0.6s ease-out;
+}
+
+/* ── Keywords ── */
+.keywords-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.keyword-tag {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.keyword-tag:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ── Clinic Banner ── */
+.clinic-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, #c47a4a 100%);
+  border-radius: 14px;
+  padding: 28px 24px;
+  margin: 36px 0 20px;
+  text-align: center;
+  color: #fff7f0;
+  animation: fadeUp 0.5s ease-out 0.5s both;
+}
+.clinic-banner h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.clinic-banner .links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.clinic-banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.18);
+  color: #fff7f0;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.clinic-banner a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 24px 0 16px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .source { margin-bottom: 4px; }
+
+/* ── Animations ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container { padding: 16px 12px; }
+  header { padding: 32px 12px 24px; }
+  header h1 { font-size: 1.35rem; }
+  .news-card { padding: 16px; }
+  .topic-bar-label { width: 120px; font-size: 0.75rem; }
+  .clinic-banner .links { flex-direction: column; align-items: center; }
+}
+
+/* ── Print ── */
+@media print {
+  body { background: #fff; }
+  .news-card, .summary-card { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🚗 路怒研究日報</h1>
+    <div class="subtitle">Road Rage Research Daily Report</div>
+    <div class="header-badges">
+      <span class="header-badge"><span class="icon">📅</span> 2026-04-26</span>
+      <span class="header-badge"><span class="icon">📄</span> 1 篇新文獻</span>
+      <span class="header-badge"><span class="icon">🏷️</span> 1 篇精選</span>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <span class="label">📊 今日總結</span>
+    <p>今日文獻聚焦於真實通勤情境下的駕駛憤怒與風險行為。一項來自中國的自然駕駛研究（NDS）透過985名駕駛的車內錄影與影片刺激回憶，探討時間壓力與車內兒童在場如何調節憤怒與危險駕駛之間的關聯。研究採用結構方程模型（SEM）進行分析。此研究突破了過去依賴自填問卷的限制，強調情境因素在情緒-行為路徑中的關鍵角色，為理解與預防攻擊性駕駛提供了更貼近真實世界的實證基礎。</p>
+  </div>
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">⭐</span> 精選研究 Top Picks</h2>
+    
+    <div class="news-card featured">
+      <div class="card-header">
+        <div class="card-title">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41806798/" target="_blank" rel="noopener">Driving anger and risky behaviour during commuting: The roles of time pressure and children's presence in a naturalistic study from China.</a>
+        </div>
+        <span class="card-rank">#1</span>
+      </div>
+      <div class="card-meta">
+        <span class="journal">Accid Anal Prev</span>
+        <span>Wang Jinru et al.</span>
+        <span>2026-06</span>
+        
+      </div>
+      <div class="card-summary">本研究利用中國哈爾濱985名駕駛的自然駕駛研究（NDS）數據，探討時間壓力與兒童在場對通勤時駕駛憤怒與風險行為關聯的調節作用。透過影片刺激回憶評估憤怒（18-item DAS），並由專家評估風險行為，使用SEM分析發現，情境因素顯著影響情緒至行為的轉化路徑。</div>
+      
+      <ul class="key-findings">
+        <li>時間壓力顯著調節駕駛憤怒與風險行為之間的關聯</li><li>車內有兒童在場時，能有效抑制憤怒轉化為危險駕駛行為的傾向</li><li>真實世界NDS數據結合專家影片評估，比傳統自陳問卷更準確捕捉危險駕駛行為</li>
+      </ul>
+      
+      <div class="clinical-implications">
+        <span class="label">🏥 臨床 / 實務應用</span>
+        在駕駛安全教育或心理諮商中，應特別關注通勤者的時間壓力管理；同時，可將「乘客（尤其是兒童）的抑制效應」納入攻擊性駕駛防制策略的考量。
+      </div>
+      <div class="card-badges">
+        <span class="badge" style="color:#5a7a3a;background:rgba(90,122,58,0.1);border:1px solid #5a7a3a30">核心研究</span>
+        <span class="topic-badge">交通心理與行為</span>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">📊</span> 主題分布</h2>
+    <div class="topic-bars">
+      
+      <div class="topic-bar-row">
+        <div class="topic-bar-label">交通心理與行為</div>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width:100%">1</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">🏷️</span> 關鍵字</h2>
+    <div class="keywords-cloud">
+      <span class="keyword-tag">駕駛憤怒</span><span class="keyword-tag">風險行為</span><span class="keyword-tag">自然駕駛研究</span><span class="keyword-tag">時間壓力</span><span class="keyword-tag">兒童在場</span><span class="keyword-tag">通勤</span><span class="keyword-tag">Driving Anger Scale</span><span class="keyword-tag">結構方程模型</span><span class="keyword-tag">情緒調節</span><span class="keyword-tag">情境因素</span><span class="keyword-tag">車內錄影</span>
+    </div>
+  </div>
+  
+
+  <div class="clinic-banner">
+    <h3>🏥 李政洋身心診所</h3>
+    <div class="links">
+      <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🌐 診所首頁</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+      <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="source">資料來源：PubMed NCBI E-utilities | AI 分析：GLM-5-Turbo</div>
+    <div>
+      <a href="index.html">📅 所有日報</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/u8901006/road-rage" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
