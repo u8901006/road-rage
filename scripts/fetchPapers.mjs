@@ -72,7 +72,18 @@ function buildDateFilter(days) {
   return `"${from}"[Date - Publication] : "3000"[Date - Publication]`;
 }
 
-async function esearch(query, days, retmax = 100) {
+async function fetchWithTimeout(url, timeoutMs = 30000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    return res;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function esearch(query, days, retmax = 100, retries = 2) {
   const dateFilter = buildDateFilter(days);
   const fullQuery = `(${query}) AND ${dateFilter}`;
   const params = new URLSearchParams({
@@ -83,19 +94,30 @@ async function esearch(query, days, retmax = 100) {
     usehistory: 'y'
   });
   const url = `${ESEARCH_URL}?${params}`;
-  console.log(`  🔍 ${url.slice(0, 120)}...`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`esearch HTTP ${res.status}`);
-  const data = await res.json();
-  const result = data?.esearchresult;
-  if (!result) throw new Error('Invalid esearch response');
-  return {
-    count: parseInt(result.count || '0', 10),
-    ids: (result.idlist || []).map(String)
-  };
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      console.log(`  🔍 [${attempt + 1}/${retries + 1}] ${url.slice(0, 100)}...`);
+      const res = await fetchWithTimeout(url, 30000);
+      if (!res.ok) throw new Error(`esearch HTTP ${res.status}`);
+      const data = await res.json();
+      const result = data?.esearchresult;
+      if (!result) throw new Error('Invalid esearch response');
+      return {
+        count: parseInt(result.count || '0', 10),
+        ids: (result.idlist || []).map(String)
+      };
+    } catch (e) {
+      if (attempt < retries) {
+        console.log(`  ⏳ Retry ${attempt + 1} for esearch...`);
+        await sleep(2000 * (attempt + 1));
+      } else {
+        throw e;
+      }
+    }
+  }
 }
 
-async function efetch(pmids) {
+async function efetch(pmids, retries = 2) {
   if (pmids.length === 0) return [];
   const params = new URLSearchParams({
     db: 'pubmed',
@@ -103,12 +125,23 @@ async function efetch(pmids) {
     rettype: 'abstract',
     retmode: 'xml'
   });
-  const res = await fetch(`${EFETCH_URL}?${params}`);
-  if (!res.ok) throw new Error(`efetch HTTP ${res.status}`);
-  const xml = await res.text();
-  const parsed = parser.parse(xml);
-  const articles = parsed?.PubmedArticleSet?.PubmedArticle || [];
-  return Array.isArray(articles) ? articles : [articles];
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetchWithTimeout(`${EFETCH_URL}?${params}`, 45000);
+      if (!res.ok) throw new Error(`efetch HTTP ${res.status}`);
+      const xml = await res.text();
+      const parsed = parser.parse(xml);
+      const articles = parsed?.PubmedArticleSet?.PubmedArticle || [];
+      return Array.isArray(articles) ? articles : [articles];
+    } catch (e) {
+      if (attempt < retries) {
+        console.log(`  ⏳ Retry efetch ${attempt + 1}...`);
+        await sleep(3000 * (attempt + 1));
+      } else {
+        throw e;
+      }
+    }
+  }
 }
 
 function extractPaper(article) {
