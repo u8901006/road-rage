@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路怒研究日報 2026-05-04 | Road Rage Research Daily</title>
+<meta name="description" content="路怒症、攻擊性駕駛、駕駛憤怒研究文獻日報 - 2026-05-04">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #fff6ea 0, #f6f1e8 55%, #ead8c6 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: 48px 24px 36px;
+  animation: fadeDown 0.6s ease-out;
+}
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+header .subtitle {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.header-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.header-badge .icon { font-size: 0.9rem; }
+
+/* ── Summary Card ── */
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.85;
+  box-shadow: 0 1px 4px rgba(139,79,43,0.06);
+  animation: fadeUp 0.5s ease-out 0.1s both;
+}
+.summary-card .label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ── Sections ── */
+.section {
+  margin: 32px 0;
+  animation: fadeUp 0.5s ease-out both;
+}
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+.section:nth-child(5) { animation-delay: 0.4s; }
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .emoji { font-size: 1.2rem; }
+
+/* ── News Cards ── */
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(139,79,43,0.05);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.news-card:hover {
+  box-shadow: 0 4px 14px rgba(139,79,43,0.1);
+  transform: translateY(-1px);
+}
+.news-card.featured {
+  border-left: 4px solid var(--accent);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.card-rank {
+  background: var(--accent);
+  color: #fff7f0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: var(--accent);
+}
+.card-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.card-meta .journal {
+  font-weight: 500;
+  font-style: italic;
+}
+.card-summary {
+  font-size: 0.9rem;
+  color: #3d3228;
+  line-height: 1.75;
+  margin: 8px 0;
+}
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.topic-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.key-findings {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+.key-findings li {
+  font-size: 0.86rem;
+  color: #3d3228;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.clinical-implications {
+  background: rgba(90,122,58,0.06);
+  border-left: 3px solid #5a7a3a;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.84rem;
+  color: #4a5a2e;
+  line-height: 1.65;
+}
+.clinical-implications .label {
+  font-weight: 600;
+  color: #5a7a3a;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ── Topic Distribution ── */
+.topic-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.topic-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topic-bar-label {
+  width: 180px;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-align: right;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.topic-bar-track {
+  flex: 1;
+  height: 22px;
+  background: rgba(139,79,43,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.topic-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #c47a4a);
+  border-radius: 6px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff7f0;
+  transition: width 0.6s ease-out;
+}
+
+/* ── Keywords ── */
+.keywords-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.keyword-tag {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.keyword-tag:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ── Clinic Banner ── */
+.clinic-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, #c47a4a 100%);
+  border-radius: 14px;
+  padding: 28px 24px;
+  margin: 36px 0 20px;
+  text-align: center;
+  color: #fff7f0;
+  animation: fadeUp 0.5s ease-out 0.5s both;
+}
+.clinic-banner h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.clinic-banner .links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.clinic-banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.18);
+  color: #fff7f0;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.clinic-banner a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 24px 0 16px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .source { margin-bottom: 4px; }
+
+/* ── Animations ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container { padding: 16px 12px; }
+  header { padding: 32px 12px 24px; }
+  header h1 { font-size: 1.35rem; }
+  .news-card { padding: 16px; }
+  .topic-bar-label { width: 120px; font-size: 0.75rem; }
+  .clinic-banner .links { flex-direction: column; align-items: center; }
+}
+
+/* ── Print ── */
+@media print {
+  body { background: #fff; }
+  .news-card, .summary-card { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🚗 路怒研究日報</h1>
+    <div class="subtitle">Road Rage Research Daily Report</div>
+    <div class="header-badges">
+      <span class="header-badge"><span class="icon">📅</span> 2026-05-04</span>
+      <span class="header-badge"><span class="icon">📄</span> 2 篇新文獻</span>
+      <span class="header-badge"><span class="icon">🏷️</span> 2 篇精選</span>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <span class="label">📊 今日總結</span>
+    <p>今日文獻聚焦於攻擊性駕駛的成因與混合交通下的行為適應。首篇研究利用自然駕駛數據與機器學習，發現网约車駕駛無論在正向或負向情緒喚起下，攻擊性駕駛風險皆會增加，其中負向情緒影響更劇，凸顯情緒管理對共享運輸安全的重要性。第二篇透過駕駛模擬器探討自動駕駛車輛（AV）滲透率對人類駕駛的影響，指出攻擊型駕駛人在混合交通中會產生特定行為適應，為未來交通安全政策提供新視角。趨勢顯示數據科學正深入解析駕駛行為機制。</p>
+  </div>
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">⭐</span> 精選研究 Top Picks</h2>
+    
+    <div class="news-card featured">
+      <div class="card-header">
+        <div class="card-title">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41916253/" target="_blank" rel="noopener">Heterogeneous treatment effects of emotional arousal on aggressive driving among ride-hailing drivers under distraction and passenger presence.</a>
+        </div>
+        <span class="card-rank">#1</span>
+      </div>
+      <div class="card-meta">
+        <span class="journal">Accid Anal Prev</span>
+        <span>Gao Lu et al.</span>
+        <span>2026 Jul</span>
+        
+      </div>
+      <div class="card-summary">本研究利用自然駕駛數據與雙重機器學習框架，探討网约車駕駛情緒喚起對攻擊性駕駛的影響。研究區分正向與負向情緒，並辨識異常加速、中度與嚴重超速三種行為。結果顯示，高正向與高負向情緒喚起均會增加攻擊性駕駛機率，其中負向情緒的促進作用更為強烈，且在分心與乘客在場的情境下呈現顯著的異質性效應。</div>
+      
+      <ul class="key-findings">
+        <li>高正向與高負向情緒喚起皆會增加网约車駕駛的攻擊性駕駛風險</li><li>負向情緒喚起對異常加速、中度與嚴重超速的影響力均大於正向情緒</li><li>雙重機器學習能有效處理自然駕駛數據中的混淆變數以精確評估因果效應</li>
+      </ul>
+      
+      <div class="clinical-implications">
+        <span class="label">🏥 臨床 / 實務應用</span>
+        針對网约車平台，應建立基於情緒偵測的即時預警系統，並加強駕駛對負向情緒調節的培訓，以降低分心與載客情境下的攻擊性駕駛風險。
+      </div>
+      <div class="card-badges">
+        <span class="badge" style="color:#5a7a3a;background:rgba(90,122,58,0.1);border:1px solid #5a7a3a30">核心研究</span>
+        <span class="topic-badge">交通心理與行為</span>
+      </div>
+    </div>
+    
+    <div class="news-card featured">
+      <div class="card-header">
+        <div class="card-title">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41886865/" target="_blank" rel="noopener">Behavioral adaptation in mixed traffic: the roles of AV penetration rate and human driving style.</a>
+        </div>
+        <span class="card-rank">#2</span>
+      </div>
+      <div class="card-meta">
+        <span class="journal">Accid Anal Prev</span>
+        <span>Chen Haitao et al.</span>
+        <span>2026 Jul</span>
+        
+      </div>
+      <div class="card-summary">本研究透過駕駛模擬器實驗，探討自動駕駛車輛（AV）滲透率（0%至75%）對人類駕駛行為適應的影響，並考量攻擊性、適度與防禦性三種駕駛風格。實驗涵蓋左轉與變換車道情境，結果發現不同駕駛風格的駕駛人在面對AV滲透率變化時，會展現出不同的戰術層級行為適應，其中攻擊型駕駛人的行為改變對整體交通安全的潛在衝擊尤為值得關注。</div>
+      
+      <ul class="key-findings">
+        <li>AV滲透率的提升會顯著改變人類駕駛的戰術層級行為適應</li><li>攻擊型駕駛人在混合交通中的行為適應模式與防禦型駕駛人存在顯著差異</li><li>左轉與變換車道情境下，駕駛風格與AV滲透率對主觀評估有交互作用</li>
+      </ul>
+      
+      <div class="clinical-implications">
+        <span class="label">🏥 臨床 / 實務應用</span>
+        在推動自動駕駛車輛普及的過程中，交通管理單位應特別關注攻擊型駕駛人的行為適應風險，必要時可透過教育訓練或車載提示系統引導其安全過渡至混合交通環境。
+      </div>
+      <div class="card-badges">
+        <span class="badge" style="color:#9f7a2e;background:rgba(159,122,46,0.1);border:1px solid #9f7a2e30">相關研究</span>
+        <span class="topic-badge">駕駛模擬與實驗</span>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">📊</span> 主題分布</h2>
+    <div class="topic-bars">
+      
+      <div class="topic-bar-row">
+        <div class="topic-bar-label">交通心理與行為</div>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width:100%">1</div>
+        </div>
+      </div>
+      
+      <div class="topic-bar-row">
+        <div class="topic-bar-label">駕駛模擬與實驗</div>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width:100%">1</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">🏷️</span> 關鍵字</h2>
+    <div class="keywords-cloud">
+      <span class="keyword-tag">攻擊性駕駛</span><span class="keyword-tag">情緒喚起</span><span class="keyword-tag">网约車駕駛</span><span class="keyword-tag">自然駕駛數據</span><span class="keyword-tag">機器學習</span><span class="keyword-tag">行為適應</span><span class="keyword-tag">自動駕駛車輛</span><span class="keyword-tag">混合交通</span><span class="keyword-tag">駕駛風格</span><span class="keyword-tag">駕駛模擬器</span><span class="keyword-tag">交通心理學</span><span class="keyword-tag">負向情緒</span>
+    </div>
+  </div>
+  
+
+  <div class="clinic-banner">
+    <h3>🏥 李政洋身心診所</h3>
+    <div class="links">
+      <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🌐 診所首頁</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+      <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="source">資料來源：PubMed NCBI E-utilities | AI 分析：GLM-5-Turbo</div>
+    <div>
+      <a href="index.html">📅 所有日報</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/u8901006/road-rage" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
