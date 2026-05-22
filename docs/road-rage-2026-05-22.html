@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路怒研究日報 2026-05-22 | Road Rage Research Daily</title>
+<meta name="description" content="路怒症、攻擊性駕駛、駕駛憤怒研究文獻日報 - 2026-05-22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #fff6ea 0, #f6f1e8 55%, #ead8c6 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: 48px 24px 36px;
+  animation: fadeDown 0.6s ease-out;
+}
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+header .subtitle {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.header-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.header-badge .icon { font-size: 0.9rem; }
+
+/* ── Summary Card ── */
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.85;
+  box-shadow: 0 1px 4px rgba(139,79,43,0.06);
+  animation: fadeUp 0.5s ease-out 0.1s both;
+}
+.summary-card .label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ── Sections ── */
+.section {
+  margin: 32px 0;
+  animation: fadeUp 0.5s ease-out both;
+}
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+.section:nth-child(5) { animation-delay: 0.4s; }
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .emoji { font-size: 1.2rem; }
+
+/* ── News Cards ── */
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(139,79,43,0.05);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.news-card:hover {
+  box-shadow: 0 4px 14px rgba(139,79,43,0.1);
+  transform: translateY(-1px);
+}
+.news-card.featured {
+  border-left: 4px solid var(--accent);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.card-rank {
+  background: var(--accent);
+  color: #fff7f0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: var(--accent);
+}
+.card-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.card-meta .journal {
+  font-weight: 500;
+  font-style: italic;
+}
+.card-summary {
+  font-size: 0.9rem;
+  color: #3d3228;
+  line-height: 1.75;
+  margin: 8px 0;
+}
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.topic-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.key-findings {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+.key-findings li {
+  font-size: 0.86rem;
+  color: #3d3228;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.clinical-implications {
+  background: rgba(90,122,58,0.06);
+  border-left: 3px solid #5a7a3a;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.84rem;
+  color: #4a5a2e;
+  line-height: 1.65;
+}
+.clinical-implications .label {
+  font-weight: 600;
+  color: #5a7a3a;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ── Topic Distribution ── */
+.topic-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.topic-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topic-bar-label {
+  width: 180px;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-align: right;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.topic-bar-track {
+  flex: 1;
+  height: 22px;
+  background: rgba(139,79,43,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.topic-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #c47a4a);
+  border-radius: 6px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff7f0;
+  transition: width 0.6s ease-out;
+}
+
+/* ── Keywords ── */
+.keywords-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.keyword-tag {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.keyword-tag:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ── Clinic Banner ── */
+.clinic-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, #c47a4a 100%);
+  border-radius: 14px;
+  padding: 28px 24px;
+  margin: 36px 0 20px;
+  text-align: center;
+  color: #fff7f0;
+  animation: fadeUp 0.5s ease-out 0.5s both;
+}
+.clinic-banner h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.clinic-banner .links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.clinic-banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.18);
+  color: #fff7f0;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.clinic-banner a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 24px 0 16px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .source { margin-bottom: 4px; }
+
+/* ── Animations ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container { padding: 16px 12px; }
+  header { padding: 32px 12px 24px; }
+  header h1 { font-size: 1.35rem; }
+  .news-card { padding: 16px; }
+  .topic-bar-label { width: 120px; font-size: 0.75rem; }
+  .clinic-banner .links { flex-direction: column; align-items: center; }
+}
+
+/* ── Print ── */
+@media print {
+  body { background: #fff; }
+  .news-card, .summary-card { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🚗 路怒研究日報</h1>
+    <div class="subtitle">Road Rage Research Daily Report</div>
+    <div class="header-badges">
+      <span class="header-badge"><span class="icon">📅</span> 2026-05-22</span>
+      <span class="header-badge"><span class="icon">📄</span> 1 篇新文獻</span>
+      <span class="header-badge"><span class="icon">🏷️</span> 1 篇精選</span>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <span class="label">📊 今日總結</span>
+    <p>今日文獻探討巴基斯坦駕駛的車禍風險因素。該研究運用可解釋的機器學習技術，分析自報的危險駕駛（包含攻擊性與負面情緒）、偏差駕駛及正向駕駛行為與過去三年車禍經驗的關聯。研究結合了 CatBoost 與 XGBoost 等演算法，旨在提升對駕駛風險預測的解釋力，顯示出資料科學方法在交通心理學與事故預防領域的應用潛力，有助於針對高風險駕駛行為制定精準的防制策略。</p>
+  </div>
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">⭐</span> 精選研究 Top Picks</h2>
+    
+    <div class="news-card featured">
+      <div class="card-header">
+        <div class="card-title">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42168463/" target="_blank" rel="noopener">Assessing and mitigating traffic crash risks using interpretable machine learning techniques.</a>
+        </div>
+        <span class="card-rank">#1</span>
+      </div>
+      <div class="card-meta">
+        <span class="journal">Sci Rep</span>
+        <span>Yousaf Adnan et al.</span>
+        <span>2026-05-21</span>
+        
+      </div>
+      <div class="card-summary">本研究針對巴基斯坦623名駕駛進行網路問卷調查，運用可解釋的機器學習技術（如 CatBoost、XGBoost）探討危險駕駛、偏差行為及正向行為與自報車禍的關聯。結果顯示，攻擊性駕駛與負面情緒等危險行為是預測車禍風險的關鍵因素，展現了機器學習在駕駛風險評估中的實用性。</div>
+      
+      <ul class="key-findings">
+        <li>運用 CatBoost 與 XGBoost 等可解釋機器學習模型能有效預測駕駛車禍風險</li><li>攻擊性駕駛、風險行為與負面情緒等危險駕駛特徵與過去三年的車禍經驗顯著相關</li><li>將駕駛行為量表與機器學習結合，能提升交通風險因子評估的準確度與解釋力</li>
+      </ul>
+      
+      <div class="clinical-implications">
+        <span class="label">🏥 臨床 / 實務應用</span>
+        實務上可利用此類可解釋的機器學習模型開發駕駛風險篩檢工具，針對具攻擊性與高負面情緒的駕駛提供客製化的防制或心理介入措施，以降低事故發生率。
+      </div>
+      <div class="card-badges">
+        <span class="badge" style="color:#9f7a2e;background:rgba(159,122,46,0.1);border:1px solid #9f7a2e30">相關研究</span>
+        <span class="topic-badge">測量與方法學</span>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">📊</span> 主題分布</h2>
+    <div class="topic-bars">
+      
+      <div class="topic-bar-row">
+        <div class="topic-bar-label">測量與方法學</div>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width:100%">1</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  <div class="section">
+    <h2 class="section-title"><span class="emoji">🏷️</span> 關鍵字</h2>
+    <div class="keywords-cloud">
+      <span class="keyword-tag">機器學習</span><span class="keyword-tag">攻擊性駕駛</span><span class="keyword-tag">車禍風險</span><span class="keyword-tag">負面情緒</span><span class="keyword-tag">XGBoost</span><span class="keyword-tag">CatBoost</span><span class="keyword-tag">自報問卷</span><span class="keyword-tag">危險駕駛行為</span><span class="keyword-tag">偏差駕駛</span><span class="keyword-tag">風險預測</span><span class="keyword-tag">可解釋人工智慧</span><span class="keyword-tag">交通心理學</span>
+    </div>
+  </div>
+  
+
+  <div class="clinic-banner">
+    <h3>🏥 李政洋身心診所</h3>
+    <div class="links">
+      <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🌐 診所首頁</a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+      <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="source">資料來源：PubMed NCBI E-utilities | AI 分析：GLM-5-Turbo</div>
+    <div>
+      <a href="index.html">📅 所有日報</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/u8901006/road-rage" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
