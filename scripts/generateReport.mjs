@@ -520,7 +520,7 @@ footer .source { margin-bottom: 4px; }
   </div>
 
   <footer>
-    <div class="source">資料來源：PubMed NCBI E-utilities | AI 分析：GLM-5-Turbo</div>
+    <div class="source">資料來源：PubMed NCBI E-utilities | AI 分析：NVIDIA Nemotron</div>
     <div>
       <a href="index.html">📅 所有日報</a>
       &nbsp;·&nbsp;

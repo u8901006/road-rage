@@ -1,6 +1,6 @@
-const API_BASE = 'https://open.bigmodel.cn/api/coding/paas/v4';
-const MODELS = ['glm-5-turbo', 'glm-4.7', 'glm-4.7-flash'];
-const MAX_TOKENS = 100000;
+const API_BASE = process.env.NVIDIA_API_BASE || 'https://integrate.api.nvidia.com/v1';
+const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
+const MAX_TOKENS = 16384;
 const TIMEOUT = 660000;
 const MAX_RETRIES = 3;
 
@@ -86,14 +86,17 @@ async function callModel(model, messages, retryCount = 0) {
     const res = await fetch(`${API_BASE}/chat/completions`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.ZHIPU_API_KEY}`,
+        'Authorization': `Bearer ${process.env.NVIDIA_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         model,
         messages,
         max_tokens: MAX_TOKENS,
-        temperature: 0.7,
+        temperature: 1.0,
+        top_p: 0.95,
+        stream: false,
+        chat_template_kwargs: { enable_thinking: false },
         response_format: { type: 'json_object' }
       }),
       signal: controller.signal

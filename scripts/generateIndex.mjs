@@ -235,7 +235,7 @@ footer a:hover { text-decoration: underline; }
   </div>
 
   <footer>
-    <div>資料來源：PubMed NCBI E-utilities | AI 分析：GLM-5-Turbo</div>
+    <div>資料來源：PubMed NCBI E-utilities | AI 分析：NVIDIA Nemotron</div>
     <div>
       <a href="https://github.com/u8901006/road-rage" target="_blank" rel="noopener">GitHub Repository</a>
     </div>

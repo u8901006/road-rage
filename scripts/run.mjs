@@ -16,8 +16,8 @@ async function main() {
   console.log(`\n🚗 Road Rage Daily Report — ${targetDate}`);
   console.log('═'.repeat(50));
 
-  if (!process.env.ZHIPU_API_KEY) {
-    console.error('❌ ZHIPU_API_KEY environment variable is required');
+  if (!process.env.NVIDIA_API_KEY) {
+    console.error('❌ NVIDIA_API_KEY environment variable is required');
     process.exit(1);
   }
 
